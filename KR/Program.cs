@@ -7,6 +7,7 @@ namespace KR
         private const int ratingForGame = 20;
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
             Console.Write("Введіть ім'я першого гравця: ");
             string firstPlayerName = Console.ReadLine();
             Console.Write("Введіть ім'я другого гравця: ");
@@ -20,8 +21,8 @@ namespace KR
 
             while (true)
             {
-                Console.Write("Оберіть:\n1 - Продовжити грати\n2 - Переглянути історія гравців\n3 - атоматична перемога першого гравця\n");
-                Console.Write("4 - атоматична перемога другого гравця\n5 - Закінчити виконання програми\nВибір: ");
+                Console.Write("Оберіть:\n1 - Продовжити грати\n2 - Переглянути історія гравців\n3 - Автоматична перемога першого гравця\n");
+                Console.Write("4 - Автоматична перемога другого гравця\n5 - Закінчити виконання програми\nВибір: ");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 if (choice == 1)
                 {
