@@ -22,36 +22,36 @@ namespace KR
                 ratingForGame = winStreakPoins + game.GetRatingForGame(Players.Player1);
                 if (ratingForGame < 0)
                 {
-                    Console.WriteLine("Гра " + gamesCount + ". " + "Рейтинг гри повинен бути менше 0");
+                    Console.WriteLine("Гра " + game.Player1.gamesCount + ". " + "Рейтинг гри повинен бути більше 0");
                     game.Player1.gamesCount--;
                     return;
                 }
                 Console.WriteLine(game.Player1.playerName + " отримав 10 очків за низку перемог!");
-                GameResults.Add(new GameHistory(game.Player1, game.Player2, true, ratingForGame));
             }
             else
             {
                 ratingForGame = game.GetRatingForGame(Players.Player1);
                 if (ratingForGame < 0)
                 {
-                    Console.WriteLine("Гра " + game.Player1.gamesCount + ". " + "Рейтинг гри повинен бути менше 0");
+                    Console.WriteLine("Гра " + game.Player1.gamesCount + ". " + "Рейтинг гри повинен бути більше 0");
                     game.Player1.gamesCount--;
                     return;
-                }
-                GameResults.Add(new GameHistory(game.Player1, game.Player2, true, ratingForGame));
+                } 
             }
             this.rating += ratingForGame;
-
+            GameResults.Add(new GameHistory(game.Player1, game.Player2, true, ratingForGame));
         }
-        //Крім того, обліковий запис із серією виграшів втрачає вдвічі менше очок (привілей преміум-облікового запису)
+        //Крім того, обліковий запис із серією виграшів втрачає вдвічі менше очок (привілей преміум облікового запису)
         public override void LoseGame(Game game)
         {
             gamesCount++;
+            if (winStreak >= 3)
+                Console.WriteLine("Серія перемог граця " + this.playerName + " обірвалася. Всього перемог поспіль було " + winStreak);
             winStreak = 0;
             int ratingForGame = game.GetRatingForGame(Players.Player1) / 2;
             if (ratingForGame < 0)
             {
-                Console.WriteLine("Game " + game.Player1.gamesCount + ". " + "Rating for game must be less then 0");
+                Console.WriteLine("Гра " + game.Player1.gamesCount + ". " + "Рейтинг гри повинен бути більше 0");
                 game.Player1.gamesCount--;
                 return;
             }

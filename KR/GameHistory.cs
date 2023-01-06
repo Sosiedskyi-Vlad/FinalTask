@@ -14,7 +14,7 @@ namespace KR
         public static int temp = 0;
         public int GameID;
         public bool IsFirstPlayerWon;
-        public int RatingForGame;
+        public int RatingForGame;       
 
         public GameHistory(Account firstPlayer, Account secondPlayer, bool isFirstPlayerWon, int ratingForGame)
         {

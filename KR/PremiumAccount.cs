@@ -15,7 +15,7 @@ namespace KR
             int ratingForGame = game.GetRatingForGame(Players.Player1) / 2;
             if (ratingForGame < 0)
             {
-                Console.WriteLine(" " + game.Player1.gamesCount + ". " + "Рейтинг гри повинен бути менше 0");
+                Console.WriteLine("Гра " + game.Player1.gamesCount + ". " + "Рейтинг гри повинен бути більше 0");
                 game.Player1.gamesCount--;
                 return;
             }
@@ -26,6 +26,8 @@ namespace KR
         }
         public override void GetStats()
         {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            Console.Write("\nРейтинг гравця " + this.playerName + ": " + this.rating);
             Console.WriteLine("\n" + playerName + " зіграв:\t" + gamesCount);
             Console.WriteLine("Історія ігор гравця " + playerName + ": ");
             foreach (GameHistory PlayerHistory in GameResults)

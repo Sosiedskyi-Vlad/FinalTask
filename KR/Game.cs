@@ -10,9 +10,7 @@ namespace KR
     class Game
     {
         private char[,] board;
-
         public char currentPlayer;
-        
         public Account Player1 { get; set; }
         public Account Player2 { get; set; }
         public int RatingForGame { get; set; }
@@ -23,7 +21,6 @@ namespace KR
             board = new char[3, 3];
             currentPlayer = 'X';
             RatingForGame = ratingForGame;
-
             //Заповнює поле пустими клітинками
             for (int i = 0; i < 3; i++)
             {
@@ -32,10 +29,6 @@ namespace KR
                     board[i, j] = ' ';
                 }
             }
-        }
-        public char getCurrentPlayer()
-        {
-            return currentPlayer;
         }
 
         //Робить хід у вказану позицію
@@ -149,7 +142,6 @@ namespace KR
         public override string ToString()
         {
             string result = "";
-
             for (int i = 0; i < 3; i++)
             {
                 result += "     |     |     \n";
@@ -227,7 +219,7 @@ namespace KR
         {
             return RatingForGame;
         }
-        public void StartAutoGame(Game game, Account Winner, Account Loser)
+        public void StartAutoGame(Game game, Account Winner)
         {
             if(game.Player1 == Winner)
             {
